@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hi</title>
 </head>
+
 <body>
- <h1> </h1>   
+
+    <h1>Hi</h1>
+
+    <form method="post" id="myForm">
+
+        <input type="text"
+               name="myTextInput"
+               value="default"
+               id="myText">
+
+        <input type="password"
+               name="myPass">
+
+        <input type="week"
+               name="myWeek">
+
+        <input type="date"
+               name="myDate">
+
+        <input type="submit"
+               value="Send">
+
+        <input type="color"
+               name="myColor">
+
+    </form>
+
+    <script>
+        function myFunction() {
+            console.log("debugging");
+            alert("Form Submitted");
+        }
+
+        document.getElementById("myForm").onsubmit = myFunction;
+    </script>
+
 </body>
+
 </html>
