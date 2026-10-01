@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
     <title>Ram's Website</title>
 
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
         .card {
             width: 400px;
             height: 145px;
@@ -14,11 +20,24 @@
             padding: 16px;
             margin: 30px auto;
 
+            box-sizing: border-box;
+        }
+
+        .card h1 {
+            margin: 0 0 14px 0;
+            font-size: 32px;
+        }
+
+        .card p {
+            margin: 0;
+        }
+
+        .ram {
             background:
                 linear-gradient(
                     to right,
                     lightblue 0%,
-                    lightblue 30%,
+                    lightblue 25%,
                     transparent 70%
                 ),
                 url("/public/messi_10.png");
@@ -31,10 +50,16 @@
 
 <body>
 
-    <div class="card">
+    <div class="card ram">
+
         <h1>Patel, Ram</h1>
-        <p>https://ram-xeal.onrender.com</p>
+
+        <p>
+            https://ram-xeal.onrender.com
+        </p>
+
     </div>
 
 </body>
+
 </html>
