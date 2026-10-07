@@ -3,45 +3,49 @@ const path = require("path");
 
 const app = express();
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: false }));
 
-app.use(
-    "/public",
-    express.static(path.join(__dirname, "public"))
-);
-
+// Home page
 app.get("/", (req, res) => {
+    res.send(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Course Server</title>
+        </head>
+
+        <body>
+            <h1>Hello from Ram's Page PUPSSS</h1>
+            <p>This page is being served by Node.js and Express.</p>
+        </body>
+        </html>
+    `);
+});
+
+
+// API - Website name
+app.get("/api/getName", (req, res) => {
+
+    res.set("Access-Control-Allow-Origin", "*");
+
+    res.json({
+        name: "JONNY"
+    });
+});
+
+
+// API - Website image
+app.get("/api/getImage", (req, res) => {
+
+    res.set("Access-Control-Allow-Origin", "*");
+
     res.sendFile(
-        path.join(__dirname, "public", "home.html")
+        path.join(__dirname, "public", "deer.jpg")
     );
 });
 
-app.get("/home", (req, res) => {
-    res.sendFile(
-        path.join(__dirname, "public", "home.html")
-    );
-});
 
-app.get("/public/home", (req, res) => {
-    res.sendFile(
-        path.join(__dirname, "public", "hello.html")
-    );
-});
-
-app.post("/public/home", (req, res) => {
-    let text = req.body.myTextInput;
-
-    res.status(200).send(
-        "Form submitted: " + text
-    );
-});
-
-app.use((req, res) => {
-    res.status(404).send("404 - Page not found");
-});
-
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server listening on port ${PORT}`);
 });
