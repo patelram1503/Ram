@@ -17,8 +17,7 @@ app.get("/", (req, res) => {
 
         <body>
             <h1>Hello from Ram's Page Publicccc :)</h1>
-            <h1>            <img src="/mahi.gif"
-                 style="width: ${size}px; height: auto;">
+            <h1>            
                  <p> We are Under Construction people </p>
                  </h1>
         </body>
