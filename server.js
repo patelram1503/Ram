@@ -20,6 +20,8 @@ app.get("/", (req, res) => {
             <h1>            
                  <p> We are Under Construction people </p>
                  </h1>
+                  <img src="/api/getImage" alt="mahi.gif">
+
         </body>
         </html>
     `);
