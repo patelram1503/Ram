@@ -5,6 +5,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+app.use("/public", express.static(path.join(__dirname, "public")));
 
 // Home page
 app.get("/", (req, res) => {
@@ -20,7 +21,8 @@ app.get("/", (req, res) => {
             <h1>            
                  <p> We are Under Construction people </p>
                  </h1>
-                  <img src="/api/getImage" alt="mahi.gif">
+                  <img src="/public/mahi.gif"
+                   style="width: 600px; height: auto;">
 
         </body>
         </html>
