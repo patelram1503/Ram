@@ -16,8 +16,11 @@ app.get("/", (req, res) => {
         </head>
 
         <body>
-            <h1>Hello from Ram's Page PUPSSS</h1>
-            <p>This page is being served by Node.js and Express.</p>
+            <h1>Hello from Ram's Page Publicccc :)</h1>
+            <h1>            <img src="/mahi.gif"
+                 style="width: ${size}px; height: auto;">
+                 <p> We are Under Construction people </p>
+                 </h1>
         </body>
         </html>
     `);
