@@ -30,7 +30,7 @@ app.get("/api/getName", (req, res) => {
     res.set("Access-Control-Allow-Origin", "*");
 
     res.json({
-        name: "JONNY"
+        name: "MAHI-RAT DREAM OF 2027"
     });
 });
 
@@ -41,7 +41,7 @@ app.get("/api/getImage", (req, res) => {
     res.set("Access-Control-Allow-Origin", "*");
 
     res.sendFile(
-        path.join(__dirname, "public", "deer.jpg")
+        path.join(__dirname, "public", "images.jpeg")
     );
 });
 
