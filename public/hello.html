@@ -3,14 +3,34 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hi</title>
+    <title>File Uploader</title>
 </head>
 
 <body>
 
-    <h1>Hi</h1>
+    <h1>File Uploader</h1>
+    
+    <!-- Normal file upload form -->
+    <form method="post" enctype="multipart/form-data" id="uploadForm">
+    <input type="password" name="mySecret" id="mySecret">
+    <input type="file" name="upload">
+    <input type="submit" value="Send">
+</form>
+  
+<!-- <form method="post" enctype="multipart/form-data" id="myForm">
+    <input type=text" name="myusername" id="myusername">
+    <input type="password" name="mySecret" id="mySecret">
+    <input type="submit" value="Send">
+</form> -->
 
-    <form method="post" id="myForm">
+
+ <hr>
+
+
+    <h2>AJAX Form</h2>
+
+    <!-- AJAX FORM -->
+<form method="post" id="myForm">
 
         <input type="text"
                name="myTextInput"
@@ -32,14 +52,43 @@
         <input type="color"
                name="myColor">
 
-    </form>
-</body>
+    </form> 
+
+
+
+<p id = "responseText"></p>
+
+
     <script>
+        
         function myFunction() {
             console.log("debugging");
             alert("Form Submitted");
         }
+// FOR SSE
+const evtSource = new EventSource("/ticktock")
+
+evtSource.addEventListener("message", (e) =>{
+    console.log(e)
+})
+// FOR  SSE ENDS HERE
 
         document.getElementById("myForm").onsubmit = myFunction;
+         document.getElementById("myForm").addEventListener("submit", (event) =>{
+            event.preventDefault()
+
+ const formData = new FormData(event.target)
+ const urlEncoded = new URLSearchParams(formData)
+
+           let myAjaxRequest = new XMLHttpRequest()
+           myAjaxRequest.addEventListener("load", () =>{
+             let res = JSON.parse(myAjaxRequest.responseText)
+             document.getElementById("responseText").innerHTML = res.text
+           })
+           myAjaxRequest.open("POST", "/public/home")
+           myAjaxRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+           myAjaxRequest.send(urlEncoded)
+         })
     </script>
+    </body>
 </html>
